@@ -15,7 +15,6 @@ import (
 	handle "github.com/ryanjdew/go-marklogic-go/handle"
 	"io/ioutil"
 	"encoding/json"
-	"github.com/davecgh/go-spew/spew"
 	"runtime"
 	"github.com/ryanjdew/go-marklogic-go/documents"
 	"strconv"
@@ -73,14 +72,17 @@ func (marklogicbench *MarkLogicBentch) InsertData(client *marklogic.Client, json
 			mapHandle := handle.RawHandle{
 				Format: handle.XML,
 			}
+			file, _ := os.OpenFile("E:\\gopath\\src\\ml-load\\ml-example\\test.json", os.O_RDWR|os.O_CREATE, 0666)
+			defer file.Close()
+			//file, _ := os.Open(".\test.json")
 			//bts, _ := json.Marshal(jsonMap)
 			//reader := bytes.NewReader(bts)
 			//
 
-			fmt.Println(spew.Sdump(mapHandle.Serialized()))
+			//fmt.Println(spew.Sdump(mapHandle.Serialized()))
 			docDescription := documents.DocumentDescription{
 				URI:     "/test" + strconv.Itoa(i) + ".json",
-				Content: nil,
+				Content: file,
 			}
 
 			docs := [] documents.DocumentDescription{docDescription}
@@ -141,7 +143,7 @@ func main() {
 	flag.StringVar(&auth, "auth", "digest", "MarkLogic REST Authentication method")
 	// flag.StringVar(&queryStr, "query", "query", "Search query file")
 	flag.IntVar(&cpunum, "cpunum", 1, "The cpu number wanna use")
-	flag.IntVar(&datanum, "datanum", 2, "The data count per proc")
+	flag.IntVar(&datanum, "datanum", 10000, "The data count per proc")
 	flag.IntVar(&procnum, "procnum", 4, "The proc num ")
 	flag.StringVar(&logpath, "logpath", "./log.log", "the log path ")
 	flag.StringVar(&jsonfile, "jsonfile", "", "the json file u wanna insert(only one json )")
@@ -184,9 +186,7 @@ func main() {
 		}
 
 		if operation == "read" {
-			//transform := util.Transform{
-			//	//Name: "",
-			//}
+
 			cate := []string{"content"}
 
 			uid := []string{`/cluster-ui-settings.xml`}
@@ -195,13 +195,13 @@ func main() {
 			mapHandle := handle.RawHandle{
 				Format: handle.XML,
 			}
-			fmt.Println(spew.Sdump(mapHandle.Serialized()))
+			//fmt.Println(spew.Sdump(mapHandle.Serialized()))
 			e := docSrv.Read(uid, cate, nil, &mapHandle)
 			if e != nil {
 				log.Printf("Document Service Error,%v\n", e)
 				os.Exit(1)
 			}
-			fmt.Println(mapHandle.Get())
+			//fmt.Println(mapHandle.Get())
 		} else if operation == "insert" {
 			chs := make([]chan int, marklogicbench.procnum)
 			runtime.GOMAXPROCS(marklogicbench.cpunum)
@@ -230,13 +230,13 @@ func main() {
 			mapHandle := handle.RawHandle{
 				Format: handle.JSON,
 			}
-			fmt.Println(spew.Sdump(mapHandle.Serialized()))
+			//fmt.Println(spew.Sdump(mapHandle.Serialized()))
 			e := docSrv.Delete(uid, cate, &mapHandle)
 			if e != nil {
 				log.Printf("Document Service Error,%v\n", e)
 				os.Exit(1)
 			}
-			fmt.Println(mapHandle.Get())
+			//fmt.Println(mapHandle.Get())
 		}else if host != "" && clean == true {
 			logger.Println("=====job start.=====")
 			logger.Println("start init colletion")
@@ -246,6 +246,7 @@ func main() {
 			fmt.Println("Please use -help to check the usage")
 			fmt.Println("At least need host parameter")
 		}
+		logger.Println("=====Done.=====")
 
 
 	}
