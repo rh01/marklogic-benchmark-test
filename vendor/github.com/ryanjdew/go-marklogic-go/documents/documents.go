@@ -60,6 +60,22 @@ func write(c *clients.Client, documents []DocumentDescription, transform *util.T
 	return errReturn
 }
 
+func delete(c *clients.Client, uris []string, categories []string, response handle.ResponseHandle) error {
+	params := buildParameters(uris, categories, nil, nil, nil,nil)
+	req, err := http.NewRequest("DELETE", c.Base()+"/documents"+params, nil)
+	if err != nil {
+		return err
+	}
+	return util.Execute(c, req, response)
+}
+
+
+
+
+
+
+
+
 func buildParameters(uris []string, categories []string, collections []string, permissions map[string]string, properties map[string]string, transform *util.Transform) string {
 	params := "?"
 	params = util.RepeatingParameters(params, "uri", uris)
