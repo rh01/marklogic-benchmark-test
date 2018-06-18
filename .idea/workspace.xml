@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8f42747-9d31-4ab4-b92a-c591ac2beb59" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml-example/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/ml-example/main.go" afterDir="false" />
-    </list>
+    <list default="true" id="f8f42747-9d31-4ab4-b92a-c591ac2beb59" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ml-example/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2379">
-              <caret line="263" column="34" lean-forward="true" selection-start-line="263" selection-start-column="34" selection-end-line="263" selection-end-column="34" />
+            <state relative-caret-position="220">
+              <caret line="88" column="27" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -26,17 +23,56 @@
       <file leaf-file-name="clientAPI.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/clientAPI.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
+            <state relative-caret-position="142">
               <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="managementAPI.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/managementAPI.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-30" />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="service.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/documents/service.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+            <state relative-caret-position="164">
+              <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="service.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/search/service.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-30" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="doc.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/doc.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-30" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log.log" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/log.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="client.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/clients/client.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8">
+              <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -44,8 +80,8 @@
       <file leaf-file-name="documents.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/documents/documents.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="45" column="33" lean-forward="true" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+            <state relative-caret-position="142">
+              <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -53,50 +89,9 @@
       <file leaf-file-name="request.go" pinned="false" current-in-tab="false">
         <entry file="file://E:/Go/src/net/http/request.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-706">
-              <caret line="768" column="40" selection-start-line="768" selection-start-column="36" selection-end-line="768" selection-end-column="40" />
+            <state relative-caret-position="142">
+              <caret line="80" column="59" selection-start-line="80" selection-start-column="54" selection-end-line="80" selection-end-column="59" />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="buffer.go" pinned="false" current-in-tab="false">
-        <entry file="file://E:/Go/src/bytes/buffer.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-16">
-              <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="types.go" pinned="false" current-in-tab="false">
-        <entry file="file://E:/Go/src/os/types.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="file_windows.go" pinned="false" current-in-tab="false">
-        <entry file="file://E:/Go/src/os/file_windows.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="transforms.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/config/transforms.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-394" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="suggest.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/search/suggest.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-525" />
           </provider>
         </entry>
       </file>
@@ -113,6 +108,9 @@
     <findStrings>
       <find>DocumentDescription</find>
       <find>io.ReadW</find>
+      <find>fmt.println</find>
+      <find>fmt.print</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="E:/go" />
@@ -133,6 +131,7 @@
         <option value="$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/documents/documents.go" />
         <option value="$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/documents/service.go" />
         <option value="$PROJECT_DIR$/ml-example/main.go" />
+        <option value="$PROJECT_DIR$/log.log" />
       </list>
     </option>
   </component>
@@ -146,10 +145,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="563" />
-    <option name="y" value="-9" />
+    <option name="x" value="562" />
+    <option name="y" value="-10" />
     <option name="width" value="1005" />
-    <option name="height" value="503" />
+    <option name="height" value="504" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -173,92 +172,6 @@
               <item name="ml-load" type="b2602c69:ProjectViewProjectNode" />
               <item name="ml-load" type="47feb1d3:ProjectViewModuleNode" />
               <item name="ml-load" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ml-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ml-load" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="ml-load" type="462c0819:PsiDirectoryNode" />
-              <item name="ml-example" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ml-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ml-load" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="ml-load" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ml-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ml-load" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="ml-load" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ml-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ml-load" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="ml-load" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="ryanjdew" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ml-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ml-load" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="ml-load" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="ryanjdew" type="462c0819:PsiDirectoryNode" />
-              <item name="go-marklogic-go" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ml-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ml-load" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="ml-load" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="ryanjdew" type="462c0819:PsiDirectoryNode" />
-              <item name="go-marklogic-go" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ml-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ml-load" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="ml-load" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="ryanjdew" type="462c0819:PsiDirectoryNode" />
-              <item name="go-marklogic-go" type="462c0819:PsiDirectoryNode" />
-              <item name="documents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ml-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ml-load" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="ml-load" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="ryanjdew" type="462c0819:PsiDirectoryNode" />
-              <item name="go-marklogic-go" type="462c0819:PsiDirectoryNode" />
-              <item name="handle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ml-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ml-load" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="ml-load" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="ryanjdew" type="462c0819:PsiDirectoryNode" />
-              <item name="go-marklogic-go" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ml-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ml-load" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="ml-load" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="ryanjdew" type="462c0819:PsiDirectoryNode" />
-              <item name="go-marklogic-go" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ml-load" type="b2602c69:ProjectViewProjectNode" />
@@ -312,14 +225,13 @@
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.496" visible="true" weight="0.20844504" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067025" side_tool="true" weight="0.2217514" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32909605" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3281471" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.29278642" />
@@ -437,20 +349,10 @@
         <state relative-caret-position="-3416" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/util/transform.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/clients/client.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -503,9 +405,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/managementAPI.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/config/extensions.go">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -520,20 +419,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/config/query.go">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/handle/handles.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="127" column="23" selection-start-line="127" selection-start-column="20" selection-end-line="127" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/management/databaseProperties.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/management/serverProperties.go">
       <provider selected="true" editor-type-id="text-editor" />
@@ -551,9 +436,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/search/search.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/search/service.go">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/search/suggest.go">
@@ -587,38 +469,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/documents/documents.go">
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/handle/handles.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="45" column="33" lean-forward="true" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+        <state relative-caret-position="142">
+          <caret line="53" column="34" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/Go/src/net/http/request.go">
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/management/databaseProperties.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-706">
-          <caret line="768" column="40" selection-start-line="768" selection-start-column="36" selection-end-line="768" selection-end-column="40" />
+        <state>
+          <caret selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/documents/service.go">
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/search/service.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+        <state relative-caret-position="-30" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/managementAPI.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/clients/client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/clientAPI.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
+        <state relative-caret-position="142">
           <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ml-example/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2379">
-          <caret line="263" column="34" lean-forward="true" selection-start-line="263" selection-start-column="34" selection-end-line="263" selection-end-column="34" />
+        <state relative-caret-position="220">
+          <caret line="88" column="27" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/documents/service.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/documents/documents.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Go/src/net/http/request.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="80" column="59" selection-start-line="80" selection-start-column="54" selection-end-line="80" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/ryanjdew/go-marklogic-go/doc.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
