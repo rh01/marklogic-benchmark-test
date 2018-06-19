@@ -2,12 +2,6 @@
 
 
 [[projects]]
-  name = "github.com/davecgh/go-spew"
-  packages = ["spew"]
-  revision = "346938d642f2ec3594ed81d874461961cd0faa76"
-  version = "v1.1.0"
-
-[[projects]]
   branch = "master"
   name = "github.com/ryanjdew/go-marklogic-go"
   packages = [
@@ -32,6 +26,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "a34ff65a8ab025f732d77938846a28bfb0a590c2decac7f88cdb13f04fbbc028"
+  inputs-digest = "9a23dc9165767f532c124541d974b25352f2ac0ecca2bb0829290fb746ed51f3"
   solver-name = "gps-cdcl"
   solver-version = 1

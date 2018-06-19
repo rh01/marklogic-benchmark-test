@@ -33,3 +33,8 @@ func (s *Service) Write(documents []DocumentDescription, transform *util.Transfo
 func (s *Service) Delete(uris []string, categories []string, response handle.ResponseHandle) error {
 	return delete(s.client, uris, categories, response)
 }
+
+// Write documents according to the DocumentDescription slice passed
+func (s *Service) Update(documents []DocumentDescription, transform *util.Transform, response handle.ResponseHandle) error {
+	return update(s.client, documents, nil, response)
+}

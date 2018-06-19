@@ -13,28 +13,21 @@ import (
 import (
 	marklogic "github.com/ryanjdew/go-marklogic-go"
 	handle "github.com/ryanjdew/go-marklogic-go/handle"
-	"io/ioutil"
-	"encoding/json"
 	"runtime"
 	"github.com/ryanjdew/go-marklogic-go/documents"
 	"strconv"
+	"github.com/ryanjdew/go-marklogic-go/search"
 )
 
 type MarkLogicBentch struct {
 	host     string
 	port     int64
 	userName string
-
 	passWord string
-	//dname           string
-	//cname           string
 	cpunum  int
 	datanum int
 	procnum int
-	//geofield        string
-	//mongoClient     *mgo.Session
-	//mongoDatabase   *mgo.Database
-	//mongoCollection *mgo.Collection
+
 }
 
 type Datainfo struct {
@@ -44,42 +37,17 @@ type Datainfo struct {
 	Lat  float64
 }
 
-func (marklogicbench *MarkLogicBentch) InsertData(client *marklogic.Client, jsoninfo string, ch chan int) {
+func (marklogicbench *MarkLogicBentch) InsertData(client *marklogic.Client,jsonFile string, jsoninfo string, ch chan int) {
 	//datainfo := Datainfo{"Edison", 1, 117.867589, 35.895416}
 	for i := 0; i < marklogicbench.datanum; i++ {
-
-		//a := datainfo.Num * r.Intn(marklogicbench.datanum)
-		//lng := datainfo.Lng + float64(r.Intn(10))*r.Float64()
-		//lat := datainfo.Lat + float64(r.Intn(10))*r.Float64()
 		if jsoninfo == "no" {
-			//err := mongobench.mongoCollection.Insert(bson.M{"Name": datainfo.Name, "Num": a})
-			//docSrv := client.Documents()
-			//mapHandle := handle.RawHandle{
-			//	Format: handle.XML,
-			//}
-			//fmt.Println(spew.Sdump(mapHandle.Serialized()))
-			//docSrv.Write()
-
-			//loc := bson.M{"type": "Point", "coordinates": []float64{lng, lat}}
-			//err := mongobench.mongoCollection.Insert(bson.M{"Name": datainfo.Name, "Num": a, mongobench.geofield: loc})
-			//
-			//if err != nil {
-			//	logger.Println("insert failed:", err)
-			//	os.Exit(1)
-			//}
-		} else if jsoninfo == "yes" {
 			docSrv := client.Documents()
 			mapHandle := handle.RawHandle{
-				Format: handle.XML,
+				Format: handle.JSON,
 			}
-			file, _ := os.OpenFile("E:\\gopath\\src\\ml-load\\ml-example\\test.json", os.O_RDWR|os.O_CREATE, 0666)
+			file, _ := os.OpenFile("./test.json", os.O_RDWR|os.O_CREATE, 0666)
 			defer file.Close()
-			//file, _ := os.Open(".\test.json")
-			//bts, _ := json.Marshal(jsonMap)
-			//reader := bytes.NewReader(bts)
-			//
 
-			//fmt.Println(spew.Sdump(mapHandle.Serialized()))
 			docDescription := documents.DocumentDescription{
 				URI:     "/test" + strconv.Itoa(i) + ".json",
 				Content: file,
@@ -88,7 +56,27 @@ func (marklogicbench *MarkLogicBentch) InsertData(client *marklogic.Client, json
 			docs := [] documents.DocumentDescription{docDescription}
 			err := docSrv.Write(docs, nil, &mapHandle)
 
-			//err := mongobench.mongoCollection.Insert(jsonMap)
+			if err != nil {
+				logger.Println("insert failed:", err)
+				os.Exit(1)
+			}
+
+		} else if jsoninfo == "yes" {
+			docSrv := client.Documents()
+			mapHandle := handle.RawHandle{
+				Format: handle.JSON,
+			}
+			file, _ := os.OpenFile(jsonFile, os.O_RDWR|os.O_CREATE, 0666)
+			defer file.Close()
+
+			docDescription := documents.DocumentDescription{
+				URI:     "/test" + strconv.Itoa(i) + ".json",
+				Content: file,
+			}
+
+			docs := [] documents.DocumentDescription{docDescription}
+			err := docSrv.Write(docs, nil, &mapHandle)
+
 			if err != nil {
 				logger.Println("insert failed:", err)
 				os.Exit(1)
@@ -98,6 +86,77 @@ func (marklogicbench *MarkLogicBentch) InsertData(client *marklogic.Client, json
 	}
 	ch <- 1
 }
+
+func (marklogicbench *MarkLogicBentch) UpdateData(client *marklogic.Client,ch chan int) {
+	for i := 0; i < marklogicbench.datanum; i++ {
+		docSrv := client.Documents()
+
+		mapHandle := handle.RawHandle{
+			Format: handle.JSON,
+		}
+		file, _ := os.OpenFile("E:\\gopath\\src\\ml-load\\ml-example\\patch.json", os.O_RDWR|os.O_CREATE, 0666)
+		defer file.Close()
+
+		docDescription := documents.DocumentDescription{
+			URI:     "/test" + strconv.Itoa(i) + ".json",
+			Content: file,
+		}
+
+		docs := [] documents.DocumentDescription{docDescription}
+		err := docSrv.Update(docs, nil, &mapHandle)
+
+		if err != nil {
+			logger.Println("update failed:", err)
+			os.Exit(1)
+		}
+	}
+	ch <- 1
+}
+func (marklogicbench *MarkLogicBentch) QueryData(client *marklogic.Client,queryStr string, all bool, ch chan int) {
+	//datainfo := Datainfo{"Edison", 1, 117.867589, 35.895416}
+	if all == true && queryStr!="" {
+		for i := 0; i < marklogicbench.datanum; i++ {
+			query := search.Query{Format: handle.JSON}
+			query.Queries = []interface{}{
+				search.TermQuery{
+					Terms: []string{queryStr},
+				},
+			}
+
+			qh := search.QueryHandle{}
+			qh.Serialize(query)
+			//fmt.Print("Serialized query:\n")
+			//fmt.Print(spew.Sdump(qh.Serialized()))
+			respHandle := search.ResponseHandle{}
+			_ = client.Search().StructuredSearch(&qh, 1, 10, &respHandle)
+			//resp := respHandle.Get()
+			//fmt.Print("Serialized response:\n")
+			//fmt.Print(spew.Sdump(resp))
+			sugRespHandle := search.SuggestionsResponseHandle{}
+			_ = client.Search().StructuredSuggestions(&qh, queryStr, 10, "", &sugRespHandle)
+			//sugResp := sugRespHandle.Serialized()
+			//fmt.Print("Serialized response:\n")
+			//fmt.Print(spew.Sdump(sugResp))
+			//fmt.Println(sugResp)
+		}
+
+	} else {
+
+		//var result1 interface{}
+		//for i := 0; i < marklogicbench.datanum; i++ {
+		//	//var query bson.M
+		//
+		//		b := datainfo.Num * r.Intn(marklogicbench.datanum)
+		//		query = bson.M{"Num": b}
+		//
+		//}
+	}
+	ch <- 1
+}
+
+
+
+
 
 func NewMarkLogicBentch(host, userName, passWord string, port int64, cpunum, datanum, procnum int) *MarkLogicBentch {
 	mongobench := &MarkLogicBentch{host, port, userName, passWord, cpunum, datanum, procnum}
@@ -110,22 +169,10 @@ var jsondata = make(map[string]interface{})
 var jsonMap = make(map[string]interface{})
 var r *rand.Rand
 
-func ReadJson(filename string) (map[string]interface{}, error) {
-	bytes, err := ioutil.ReadFile(filename)
-	if err != nil {
-		logger.Println("ReadFile:", err.Error())
-		return nil, err
-	}
-	if err := json.Unmarshal(bytes, &jsondata); err != nil {
-		logger.Println("unmarshal:", err.Error())
-		return nil, err
-	}
-	return jsondata, nil
 
-}
 
 func main() {
-	var host, username, password, auth, logpath, jsonfile string
+	var host, username, password, auth, logpath, jsonfile, queryStr string
 	var port int64
 	var operation string
 	var queryall, clean bool
@@ -141,14 +188,14 @@ func main() {
 	flag.StringVar(&username, "username", "admin", "MarkLogic REST Username")
 	flag.StringVar(&password, "password", "heng130509", "MarkLogic REST Password")
 	flag.StringVar(&auth, "auth", "digest", "MarkLogic REST Authentication method")
-	// flag.StringVar(&queryStr, "query", "query", "Search query file")
 	flag.IntVar(&cpunum, "cpunum", 1, "The cpu number wanna use")
 	flag.IntVar(&datanum, "datanum", 10000, "The data count per proc")
 	flag.IntVar(&procnum, "procnum", 4, "The proc num ")
 	flag.StringVar(&logpath, "logpath", "./log.log", "the log path ")
-	flag.StringVar(&jsonfile, "jsonfile", "", "the json file u wanna insert(only one json )")
+	flag.StringVar(&jsonfile, "jsonfile", "./test.json", "the json file u wanna insert(only one json )")
 	flag.StringVar(&operation, "operation", "", "the operation ")
-	flag.BoolVar(&queryall, "queryall", false, "query all or limit one")
+	flag.BoolVar(&queryall, "queryall", true, "query all or limit one")
+	flag.StringVar(&queryStr, "query", "query", "Search query file")
 	flag.BoolVar(&clean, "clean", false, "Drop the Database which --db given")
 
 	flag.Parse()
@@ -176,21 +223,9 @@ func main() {
 		logger.Println(datanum, operation)
 		marklogicbench := NewMarkLogicBentch(host, username, password, port, cpunum, datanum, procnum)
 
-		if jsonfile != "" {
-			var err error
-			jsonMap, err = ReadJson(jsonfile)
-			logger.Println(jsonMap)
-			if err != nil {
-				logger.Println(err)
-			}
-		}
-
 		if operation == "read" {
-
 			cate := []string{"content"}
-
 			uid := []string{`/cluster-ui-settings.xml`}
-
 			docSrv := client.Documents()
 			mapHandle := handle.RawHandle{
 				Format: handle.XML,
@@ -198,11 +233,29 @@ func main() {
 			//fmt.Println(spew.Sdump(mapHandle.Serialized()))
 			e := docSrv.Read(uid, cate, nil, &mapHandle)
 			if e != nil {
-				log.Printf("Document Service Error,%v\n", e)
+				log.Printf("Document read Error,%v\n", e)
 				os.Exit(1)
 			}
 			//fmt.Println(mapHandle.Get())
-		} else if operation == "insert" {
+		} else if operation == "query" {
+
+			chs := make([]chan int, marklogicbench.procnum)
+			runtime.GOMAXPROCS(marklogicbench.cpunum)
+			for i := 0; i < marklogicbench.procnum; i++ {
+				fmt.Println(i)
+
+				chs[i] = make(chan int)
+
+				go marklogicbench.QueryData(client,queryStr,queryall, chs[i])
+
+			}
+
+			for _, cha := range chs {
+				<-cha
+
+			}
+
+		}else if operation == "insert" {
 			chs := make([]chan int, marklogicbench.procnum)
 			runtime.GOMAXPROCS(marklogicbench.cpunum)
 			for i := 0; i < marklogicbench.procnum; i++ {
@@ -211,9 +264,9 @@ func main() {
 				chs[i] = make(chan int)
 
 				if jsonfile == "" {
-					go marklogicbench.InsertData(client, "no", chs[i])
+					go marklogicbench.InsertData(client, jsonfile,"no", chs[i])
 				} else {
-					go marklogicbench.InsertData(client, "yes", chs[i])
+					go marklogicbench.InsertData(client, jsonfile,"yes", chs[i])
 				}
 			}
 
@@ -221,6 +274,23 @@ func main() {
 				<-cha
 
 			}
+		}else if operation == "update" {
+			ch := make([]chan int, marklogicbench.procnum)
+			runtime.GOMAXPROCS(marklogicbench.cpunum)
+			for i := 0; i < marklogicbench.procnum; i++ {
+				fmt.Println(i)
+
+				ch[i] = make(chan int)
+
+				go marklogicbench.UpdateData(client, ch[i])
+
+			}
+
+			for _, cha := range ch {
+				<-cha
+
+			}
+
 		}else if operation == "delete"{
 			cate := []string{"content"}
 
@@ -233,7 +303,7 @@ func main() {
 			//fmt.Println(spew.Sdump(mapHandle.Serialized()))
 			e := docSrv.Delete(uid, cate, &mapHandle)
 			if e != nil {
-				log.Printf("Document Service Error,%v\n", e)
+				log.Printf("document delete Error,%v\n", e)
 				os.Exit(1)
 			}
 			//fmt.Println(mapHandle.Get())
